@@ -71,37 +71,6 @@ function initHeader() {
     });
 }
 
-function isVisibleInViewport(elem) {
-    var y = elem.offsetTop;
-    var height = elem.offsetHeight;
-
-    while (elem = elem.offsetParent)
-        y += elem.offsetTop;
-
-    var maxHeight = y + height;
-    var isVisible = (y < (window.pageYOffset + window.innerHeight)) && (maxHeight >= window.pageYOffset);
-    return isVisible;
-
-}
-
-function initVideoPlayer() {
-    // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
-    const player = new Plyr('#video-player');
-    // Expose
-    window.player = player;
-    const videoPlayerEl = document.querySelector('#video-player');
-
-    $(window).scroll(function () {
-        const isVisible = isVisibleInViewport(videoPlayerEl);
-        if (isVisible && !player.playing) {
-            player.play();
-        }
-        if (!isVisible && player.playing) {
-            player.pause();
-        }
-    });
-}
-
 function scrollAnimation() {
     $(window).scroll(function () {
         $(".js-scroll-trigger").each(function () {
@@ -121,10 +90,33 @@ function onDashboardRegisContact() {
     });
 }
 
-//////////////////////////////////////////
-$(document).ready(function () {
-    initHeader();
+function initLangSwitcher(){
+    $('#language-switcher').selectpicker(); 
+    $('#language-switcher').on('change', function () {
+        localStorage.setItem('lang', this.value);
+        loadLanguage(this.value);
+    });
+}
 
+function loadLanguage(lang) {
+    $.getJSON('i18n/' + lang + '.json', function (translations) {
+        $('[data-translate]').each(function () {
+            var key = $(this).data('translate');
+            $(this).html(translations[key] || 'Missing translation');
+            if (this.type === 'submit'){
+                this.value = translations[key] || 'Missing translation';
+            }
+        });
+    });
+}
+
+
+//////////////////////////////////////////
+$(function () {
+    initHeader();
+    initLangSwitcher();
+    localStorage.setItem('lang', 'en');
+    loadLanguage(localStorage.getItem('lang') || 'en');
     // Make anchor links scroll
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();

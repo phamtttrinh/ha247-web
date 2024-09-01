@@ -9,18 +9,19 @@
 	<link type="text/css" rel="stylesheet" href="css/libs/google-font.css">
 	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap.css">
 	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap-icons.css" />
+	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap-select.css" />
 	<link type="text/css" rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/font-awesome-4.7.0.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/flexslider.css" />
-	<link type="text/css" rel="stylesheet" href="https://cdn.plyr.io/3.4.6/plyr.css" />
+	<link type="text/css" rel="stylesheet" href="css/libs/plyr.css" />
+	<link type="text/css" rel="stylesheet" href="css/libs/flag-icons.css" />
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
 	<!--Header-->
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
 		<header class="header">
 			<div id="navbar">
 				<div id="navbar-left">
@@ -28,9 +29,9 @@
 						<img src="./images/logo/ha247-logo.png" alt="HA247 Logo" id="logo"></a>
 				</div>
 				<div id="navbar-middle">
-					<a href="./about-us.html" class="header-link">ABOUT US</a>
+					<a href="./about-us.html" class="header-link" data-translate="ABOUT_US"></a>
 					<div id="services-link-container">
-						<a href="#" id="nav-bar--services" class="header-link">SERVICES</a>
+						<a href="#" id="nav-bar--services" class="header-link" data-translate="SERVICES"></a>
 						<div id="services-container">
 							<div id="services-personal-assistant" class="service-box">
 								<a href="#" class="service-link">
@@ -38,9 +39,8 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Peronal Assistant_20240827_223759_0001.svg"
 												class="service-icon">
-											<div class="service-personal-assistant-title">
-												Personal Assistant
-											</div>
+											<div class="service-personal-assistant-title"
+												data-translate="PERSONAL_ASSISTANT"></div>
 										</div>
 									</div>
 								</a>
@@ -50,9 +50,8 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Peronal Assistant_20240827_223759_0001.svg"
 													class="service-personal-assistant-hover-icon">
-												<div class="service-personal-assistant-hover-title">
-													Personal Assistant
-												</div>
+												<div class="service-personal-assistant-hover-title"
+													data-translate="PERSONAL_ASSISTANT"></div>
 											</div>
 										</div>
 									</a>
@@ -64,8 +63,7 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Interpreter_20240827_223759_0000.svg"
 												class="service-icon">
-											<div class="service-interpreter-title">
-												Interpreter
+											<div class="service-interpreter-title" data-translate="INTERPRETER">
 											</div>
 										</div>
 									</div>
@@ -76,8 +74,8 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Interpreter_20240827_223759_0000.svg"
 													class="service-interpreter-hover-icon">
-												<div class="service-interpreter-hover-title">
-													Interpreter
+												<div class="service-interpreter-hover-title"
+													data-translate="INTERPRETER">
 												</div>
 											</div>
 										</div>
@@ -90,9 +88,7 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Life Care_20240827_223759_0002.svg"
 												class="service-icon">
-											<div class="service-life-care-title">
-												Life Care
-											</div>
+											<div class="service-life-care-title" data-translate="LIFE_CARE"></div>
 										</div>
 									</div>
 								</a>
@@ -102,8 +98,7 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Life Care_20240827_223759_0002.svg"
 													class="service-life-care-hover-icon">
-												<div class="service-life-care-hover-title">
-													Life Care
+												<div class="service-life-care-hover-title" data-translate="LIFE_CARE">
 												</div>
 											</div>
 										</div>
@@ -116,9 +111,7 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Receptionist_20240827_223759_0003.svg"
 												class="service-icon">
-											<div class="service-reception-title">
-												Reception
-											</div>
+											<div class="service-reception-title" data-translate="RECEPTION"></div>
 										</div>
 									</div>
 								</a>
@@ -128,8 +121,7 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Receptionist_20240827_223759_0003.svg"
 													class="service-reception-hover-icon">
-												<div class="service-reception-hover-title">
-													Reception
+												<div class="service-reception-hover-title" data-translate="RECEPTION">
 												</div>
 											</div>
 										</div>
@@ -142,8 +134,7 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Amind Assistant_20240827_223759_0004.svg"
 												class="service-icon">
-											<div class="service-admin-assistant-title">
-												Admin Assistant
+											<div class="service-admin-assistant-title" data-translate="ADMIN_ASSISTANT">
 											</div>
 										</div>
 									</div>
@@ -154,9 +145,8 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Amind Assistant_20240827_223759_0004.svg"
 													class="service-admin-assistant-hover-icon">
-												<div class="service-admin-assistant-hover-title">
-													Admin Assistant
-												</div>
+												<div class="service-admin-assistant-hover-title"
+													data-translate="ADMIN_ASSISTANT"></div>
 											</div>
 										</div>
 									</a>
@@ -168,9 +158,8 @@
 										<div class="service-display">
 											<img src="./images/icons/services/Business Assistant_20240827_223759_0005.svg"
 												class="service-icon">
-											<div class="service-business-assistant-title">
-												Business Assistant
-											</div>
+											<div class="service-business-assistant-title"
+												data-translate="BUSINESS_ASSISTANT"></div>
 										</div>
 									</div>
 								</a>
@@ -180,9 +169,8 @@
 											<div class="service-hover-display">
 												<img src="./images/icons/services/Business Assistant_20240827_223759_0005.svg"
 													class="service-business-assistant-hover-icon">
-												<div class="service-business-assistant-hover-title">
-													Business Assistant
-												</div>
+												<div class="service-business-assistant-hover-title"
+													data-translate="BUSINESS_ASSISTANT"></div>
 											</div>
 										</div>
 									</a>
@@ -191,10 +179,18 @@
 						</div>
 					</div>
 					<div id="pricings-link-container">
-						<a href="./pricing.html" id="nav-bar--pricings" class="header-link">PRICING</a>
+						<a href="./pricing.html" id="nav-bar--pricings" class="header-link"
+							data-translate="PRICING"></a>
 					</div>
 				</div>
 				<div id="navbar-right">
+					<div class="nav-language-switcher">
+						<select id="language-switcher" data-width=" fit">
+							<option data-content='<span class="fi fi-us"></span>'>en</option>
+							<option data-content='<span class="fi fi-jp"></span>'>jp</option>
+							<option data-content='<span class="fi fi-vn"></span>'>vi</option>
+						</select>
+					</div>
 					<a id="ha247-hire-btn" class="btn" href="./about-us.html">Contact Us</a>
 					<div class="hamburger-icon-container" onclick="hamburgerMenu(this)">
 						<div class="bar1"></div>
@@ -290,8 +286,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center u-fade-type-static js-scroll-trigger">
-						<h3>We are building Trust and Credebility by sharing testimonials highlighting successful
-							clients expriences and the positive impact on their lives.</h3>
+						<h3 data-translate="HOMEPAGE_QUOTE"></h3>
 					</div>
 				</div>
 			</div>
@@ -313,7 +308,8 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2 class="text-center u-fade-type-static js-scroll-trigger">Our Services</h2>
+							<h2 class="text-center u-fade-type-static js-scroll-trigger"
+								data-translate="HOMEPAGE_OUR_SERVICES"></h2>
 							<div class="hr"></div>
 						</div>
 					</div>
@@ -321,32 +317,29 @@
 				<div class="services-summary-group">
 					<div class="row sub-title">
 						<div class="col-lg-12">
-							<h2 class="u-fade-type-static js-scroll-trigger">LIFE COMPANIONS</h2>
+							<h2 class="u-fade-type-static js-scroll-trigger" data-translate="LIFE_COMPANIONS"></h2>
 						</div>
 					</div>
 					<div class="row services-group-boxed">
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Personal Assistants</h2>
-								<p>Manage schedules, remind events, book tickets, and handle daily tasks, making life
-									easier and stress-free</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="PERSONAL_ASSISTANT"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_PERSONAL_ASSISTANT"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Interpreters</h2>
-								<p>Break language barriers in any setting, ensure clear, concise communication.
-									Flexible, cost-effective, and available online or on-site.</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="INTERPRETER"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_INTERPRETER"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Life Care Companions</h2>
-								<p>Elevate your daily life with cleaning, laundry, shoe care, shopping, and more. Enjoy
-									a healthy, balanced living space with attention to every detail.</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="LIFE_CARE_COMPANIONS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_LIFE_CARE_COMPANIONS"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 					</div>
@@ -354,32 +347,29 @@
 				<div class="services-summary-group">
 					<div class="row sub-title">
 						<div class="col-lg-12">
-							<h2 class="u-fade-type-static js-scroll-trigger">BUSINESS ASSISTANCE</h2>
+							<h2 class="u-fade-type-static js-scroll-trigger" data-translate="BUSINESS_ASSISTANT"></h2>
 						</div>
 					</div>
 					<div class="row services-group-boxed">
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Receptionists</h2>
-								<p>Ensure security, greet guests, manage info, and keep things running smoothly with
-									efficiency and professionalism.</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="RECEPTIONISTS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_RECEPTIONISTS"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Administration Assistants</h2>
-								<p>Support staff, coordinating tasks, and ensure clear communication across
-									teams—flexible, efficient, and cost-effective.</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="ADMIN_ASSISTANT"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_ADMIN_ASSISTANT"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2>Business Assistants</h2>
-								<p>Manage the CEO’s schedule, coordinate tasks, and provide seamless support, both
-									in-person and online.</p>
-								<a href="#" class="btn-cta"><span>Book now</span></a>
+								<h2 data-translate="BUSINESS_ASSISTANT"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_BUSINESS_ASSISTANT"></p>
+								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 					</div>
@@ -392,7 +382,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2 class="text-center u-fade-type-static js-scroll-trigger">Assistants you can fully trust
+							<h2 class="text-center u-fade-type-static js-scroll-trigger" data-translate="USP_TITLE">
 							</h2>
 							<div class="hr"></div>
 						</div>
@@ -403,41 +393,24 @@
 						<div
 							class="d-flex flex-column justify-content-flex-start boxed-column-inner gradient-icon-parent">
 							<img src="./images/icons/usp/1_20240831_160213_0000.svg">
-							<h4>Your companion in every moment</h4>
-							<p>We not only support your work but also take care of every little detail in your life.
-								From personal planning
-								to creating a healthy living space and comfortable spirit, we always accompany you in
-								every moment.</p>
-							<!-- <h4>Flexible</h4> -->
-							<!-- <p>Support multitasking with high flexibility ensuring smooth management.</p> -->
+							<h4 data-translate="USP_1_TITLE"></h4>
+							<p data-translate="USP_1_CONTENT"></p>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-4 boxed-column d-flex flex-column justify-content-flex-start">
 						<div
 							class="d-flex flex-column justify-content-flex-start boxed-column-inner gradient-icon-parent">
 							<img src="./images/icons/usp/2_20240831_160213_0001.svg">
-							<h4>Global connection, local understanding</h4>
-							<p>With the ability to communicate and interpret in Japanese, English, we help you overcome
-								all language and
-								cultural barriers. Our team is not only fluent in the language but also has a deep
-								understanding of local
-								culture, ensuring that information is conveyed accurately and effectively.</p>
-							<!-- <h4>Professional</h4> -->
-							<!-- <p>Deliver reliable and precise assistance with the hightest standards of quality and conduct.</p> -->
+							<h4 data-translate="USP_2_TITLE"></h4>
+							<p data-translate="USP_2_CONTENT"></p>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-4 boxed-column d-flex flex-column justify-content-flex-start">
 						<div
 							class="d-flex flex-column justify-content-flex-start boxed-column-inner gradient-icon-parent">
 							<img src="./images/icons/usp/3_20240831_160213_0002.svg">
-							<h4>Flexible in every need, maximum cost savings</h4>
-							<p>We provide flexible human resource solutions, from short-term to long-term, helping you
-								save costs while still
-								ensuring work efficiency. Our services can meet both online and direct, suitable for all
-								your requirements,
-								bringing maximum flexibility.</p>
-							<!-- <h4>Efficient</h4> -->
-							<!-- <p>Effectively meet the desired outcomes, precisely and helpfully accomplish tasks.</p> -->
+							<h4 data-translate="USP_3_TITLE"></h4>
+							<p data-translate="USP_3_CONTENT"></p>
 						</div>
 					</div>
 				</div>
@@ -449,7 +422,8 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2 class="text-center u-fade-type-static js-scroll-trigger">Our Valued Partners</h2>
+							<h2 class="text-center u-fade-type-static js-scroll-trigger"
+								data-translate="OUR_VALUED_PARTNERS"></h2>
 							<div class="hr"></div>
 						</div>
 					</div>
@@ -479,10 +453,9 @@
 				<div class="row">
 					<!-- <div class="col-lg-2"></div> -->
 					<div class="text-center">
-						<h2 class="u-fade-type-static js-scroll-trigger">
-							Ready to get your plan started with our assistance services today?
-						</h2>
-						<a class="btn u-fade-type-down js-scroll-trigger" href="./contact-us.html">Contact Us</a>
+						<h2 class="u-fade-type-static js-scroll-trigger" data-translate="HOMEPAGE_CTA"></h2>
+						<a class="btn u-fade-type-down js-scroll-trigger" href="./contact-us.html"
+							data-translate="CONTACT_US"></a>
 					</div>
 					<!-- <div class="col-lg-2"></div> -->
 				</div>
@@ -752,17 +725,12 @@
 			<div class="container">
 				<div class="row d-flex flex-row justify-content-center">
 					<div class="col-sm-6 text-left left-column">
-						<h2>OUR Company - YOUR Assistants</h2>
-						<p>
-							Our Help All 247 is your trusted partner for efficient and customized assistance services.
-							<br />
-							Contact us today to unlock new opportunities and elevate your life and business to new
-							heights.
-						</p>
+						<h2 data-translate="OUR_COMPANY_YOUR_ASSISTANTS"></h2>
+						<p data-translate="OUR_COMPANY_YOUR_ASSISTANTS_CONTENT"></p>
 					</div>
 					<div class="col-sm-6 text-right d-flex flex-column justify-content-center right-column">
 						<div class="outter-button d-flex flex-row justify-content-end flex-grow-0">
-							<a class="btn u-fade-type-down js-scroll-trigger" href="./contact-us.html">Contact Us<i
+							<a class="btn u-fade-type-down js-scroll-trigger" href="./contact-us.html" data-translate="CONTACT_US"><i
 									class="bi bi-arrow-right"></i></a>
 						</div>
 					</div>
@@ -777,23 +745,18 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div><img width="200" src="./images/logo/ha247-logo-white.png" alt="HelpAll247 Logo"></div>
-						<p>True Support - True Value</p>
-						<p>Personal Assitants. Life Companions. Business Assistants</p>
-						<p>Come to meet us at 2nd Floor - PLS Building - 85 Tan Cang Street, Ward 25, Binh Thanh
-							District, Ho Chi Minh City, Vietnam</p>
-						<p>Make with ❤️ from the Help All 247 Team.</p>
+  						<div data-translate="FOOTER_LEFT"></div>
 					</div>
 					<div class="col-lg-3">
-						<p><a class="footer-menu-link" href="#">Privacy Policy</a></p>
-						<p><a class="footer-menu-link" href="#">Terms & Conditions</a></p>
-						<p><a class="footer-menu-link" href="#">FAQ</a></p>
+						<p><a class="footer-menu-link" href="#" data-translate="PRIVACY_POLICY"></a></p>
+						<p><a class="footer-menu-link" href="#" data-translate="TERMS_CONDITIONS"></a></p>
+						<p><a class="footer-menu-link" href="#" data-translate="FAQ"></a></p>
 					</div>
 					<div class="col-lg-3">
 						<di class="signup-productivity-tips-container">
-							<h5>Never miss a thing</h5>
+							<h5 data-translate="REG_RECEIVE_NEWS_TITLE"></h5>
 							<form id="dashboard-customer-contact-form" action="#">
-								<label for="user-email">Update news and lastest promotions and receive exclusive
-									offers.</label>
+								<label data-translate="REG_RECEIVE_NEWS_DES"></label>
 								<div class="input-group">
 									<input class="form-control" type="email" id="email" name="email" required
 										placeholder="your-mail@gmail.com"></input>
@@ -803,7 +766,7 @@
 										placeholder="(+84)123-45-678"
 										pattern="(?:\+84|0084|0)[235789][0-9]{1,2}[0-9]{7}(?:[^\d]+|$)">
 								</div>
-								<input class="btn" type="submit" value="Sign up" />
+								<input class="btn" type="submit" data-translate="SIGN_UP" />
 							</form>
 					</div>
 				</div>
@@ -811,13 +774,7 @@
 		</div>
 		<div class="footer-info-container">
 			<div class="row">
-				<p>
-					<span class="highlight-block"> Imitated but Never Duplicated: </span>
-					Please note that our official site - <span
-						class="highlight-text"><em><strong>www.helpall247.com</strong></em></span>
-					- and our official emails - are the only places from which we will ever recruit and initiate sales.
-					We will never ask for money during our application or hiring process.
-				</p>
+				<p data-translate="FOOTER_INFO"></p>
 			</div>
 		</div>
 		<div class="container copyright-container">
@@ -870,10 +827,11 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/libs/jquery.js"></script>
-	<script src="js/libs/bootstrap.js"></script>
-	<script src="js/libs/jquery.flexslider-min.js"></script>
-	<script src="https://cdn.plyr.io/3.4.6/plyr.js"></script>
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/jquery.flexslider.js"></script>
+	<script src="js/libs/bootstrap.bundle.min.js"></script>
+	<script src="js/libs/bootstrap-select.min.js"></script>
+	<script src="js/libs/plyr.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/index.js"></script>
 </body>

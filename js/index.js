@@ -64,7 +64,7 @@ function initAnimationSections() {
 }
 
 //////////////////////////////////////////
-$(document).ready(function () {
+$(function () {
     initVideoPlayer();
     initTestimonialBoxedSection();
     initAnimationSections();
