@@ -1,14 +1,23 @@
 
+var styleConfig = {
+
+    compayLogoWhite: "./images/logo/ha247-logo-white.png",
+    companyLogo: "./images/logo/ha247-logo.png",
+
+    darkGreenColor: 'rgba(1, 90, 70, 1)',
+    darkGreenTransparent: 'rgba(1, 90, 70, 0)',
+    whiteColor: '#fff'
+};
 
 function scrollFunction() {
     if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) && (document.getElementById("full-screen-menu-container").style.opacity == 0)) {
-        document.getElementById("navbar").style.background = 'rgba(1, 90, 70, 1)';
-        document.getElementById("navbar").style.color = '#fff';
-        document.getElementById("logo").src = "./images/logo/ha247-logo-white.png";
+        document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
+        document.getElementById("navbar").style.color = styleConfig.whiteColor;
+        document.getElementById("logo").src = styleConfig.compayLogoWhite;
     } else {
-        document.getElementById("navbar").style.background = 'rgba(1, 90, 70, 0)';
-        document.getElementById("navbar").style.color = 'rgba(1, 90, 70, 1)';
-        document.getElementById("logo").src = "./images/logo/ha247-logo.png";
+        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
+        document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
+        document.getElementById("logo").src = styleConfig.companyLogo;
     }
 }
 
@@ -23,27 +32,29 @@ function hamburgerMenu(x) {
             'height': '100vh',
             'opacity': '1'
         });
-        navbarMiddle.css({ 'color': '#fff' });
-
-        document.getElementById("logo").src = "./images/logo/ha247-logo-white.png";
+        navbarMiddle.css({ 'color': styleConfig.whiteColor });
+        document.getElementById("logo").src = styleConfig.compayLogoWhite;
     } else {
         menu.css({
             'height': '0',
             'opacity': '0'
         });
-
+        navbarMiddle.css({ 'color': darkGreenColor });
         if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-            document.getElementById("logo").src = "./images/logo/ha247-logo-white.png";
+            document.getElementById("logo").src = styleConfig.compayLogoWhite;
         } else {
-            document.getElementById("logo").src = "./images/logo/ha247-logo.png";
+            document.getElementById("logo").src = styleConfig.companyLogo;
         }
     }
 
     /* Remove navy background from menu if present */
     if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) && (document.getElementById("full-screen-menu-container").style.opacity == 0)) {
-        document.getElementById("navbar").style.background = 'rgba(1, 90, 70, 1)';
+
+        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
+        navbarMiddle.css({ 'color': styleConfig.darkGreenColor });
     } else {
-        document.getElementById("navbar").style.background = 'rgba(1, 90, 70, 0)';
+        document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
+        navbarMiddle.css({ 'color': styleConfig.whiteColor });
     }
 
 }
@@ -65,10 +76,6 @@ function initHeader() {
     const d = new Date();
     let year = d.getFullYear();
     document.getElementById("current-year").innerHTML = year;
-    $("body").on("click", "#close-btn", function () {
-        $("#popup-overlay-div").remove();
-        $("#hire-belay-pop").remove();
-    });
 }
 
 function scrollAnimation() {
@@ -90,8 +97,8 @@ function onDashboardRegisContact() {
     });
 }
 
-function initLangSwitcher(){
-    $('#language-switcher').selectpicker(); 
+function initLangSwitcher() {
+    $('#language-switcher').selectpicker();
     $('#language-switcher').on('change', function () {
         localStorage.setItem('lang', this.value);
         loadLanguage(this.value);
@@ -103,34 +110,42 @@ function loadLanguage(lang) {
         $('[data-translate]').each(function () {
             var key = $(this).data('translate');
             $(this).html(translations[key] || 'Missing translation');
-            if (this.type === 'submit'){
+            if (this.type === 'submit') {
                 this.value = translations[key] || 'Missing translation';
             }
         });
     });
 }
 
+function includePartialHtml() {
+    $("div[data-includeHTML]").each(function () {
+        $(this).load($(this).attr("data-includeHTML"));
+    });
+}
 
 //////////////////////////////////////////
 $(function () {
-    initHeader();
-    initLangSwitcher();
-    localStorage.setItem('lang', 'en');
-    loadLanguage(localStorage.getItem('lang') || 'en');
-    // Make anchor links scroll
-    $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 500);
-    });
+    includePartialHtml();
+    setTimeout(() => {
+        initLangSwitcher();
+        localStorage.setItem('lang', 'en');
+        loadLanguage(localStorage.getItem('lang') || 'en');
+        initHeader();
+        // Make anchor links scroll
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+        });
 
-    $(".js-window-trigger").each(function () {
-        $(this).addClass('is-active');
-    });
+        $(".js-window-trigger").each(function () {
+            $(this).addClass('is-active');
+        });
 
-    if ($('.js-scroll-trigger').length) {
-        scrollAnimation();
-    }
-    $(window).trigger('scroll');
+        if ($('.js-scroll-trigger').length) {
+            scrollAnimation();
+        }
+        $(window).trigger('scroll');
+    }, 100);
 });
