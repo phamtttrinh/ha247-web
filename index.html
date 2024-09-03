@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<title>Ha247 | Welcome</title>
-	<link type="text/css" rel="stylesheet" href="css/libs/google-font.css">
+	<link type="text/css" rel="preload" href="css/libs/google-font.css">
 	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap.css">
 	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap-icons.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/bootstrap-select.css" />
@@ -14,7 +14,6 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/font-awesome-4.7.0.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/flexslider.css" />
-	<link type="text/css" rel="stylesheet" href="css/libs/plyr.css" />
 	<link type="text/css" rel="stylesheet" href="css/libs/flag-icons.css" />
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 </head>
@@ -22,8 +21,8 @@
 <body>
 	<!--Header-->
 	<header class="header">
-<div data-includeHTML="./partial-html/header.html"></div>
-<img src="./images/banner/ha247-banner.svg" width="100%" height="auto" />
+		<div data-includeHTML="./partial-html/header.html"></div>
+		<img src="./images/banner/ha247-banner.svg" width="100%" height="auto" />
 	</header>
 	<!--Entry Content-->
 	<div class="entry-content">
@@ -41,10 +40,8 @@
 		<section class="video-company-section">
 			<div class="container">
 				<div class="row">
-					<video controls crossorigin playsinline poster="./images/ha247-clip-poster.svg" id="video-player">
-						<!-- Video files -->
-						<source src="./videos/ha247-video.mp4" type="video/mp4">
-					</video>
+					<video class="elementor-video" src="./videos/ha247-video.mp4" controls controlslist="nodownload"
+						id="video-player"></video>
 				</div>
 			</div>
 		</section>
@@ -69,23 +66,26 @@
 					<div class="row services-group-boxed">
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2 data-translate="PERSONAL_ASSISTANT"></h2>
-								<p data-translate="HOMEPAGE_SERVICE_PERSONAL_ASSISTANT"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<h2 data-translate="PERSONAL_ASSISTANTS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_PERSONAL_ASSISTANTS"></p>
+								<a href="./pricing.html?category='life'" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2 data-translate="INTERPRETER"></h2>
-								<p data-translate="HOMEPAGE_SERVICE_INTERPRETER"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<h2 data-translate="INTERPRETERS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_INTERPRETERS"></p>
+								<a href="./pricing.html?category='life'" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2 data-translate="LIFE_CARE_COMPANIONS"></h2>
-								<p data-translate="HOMEPAGE_SERVICE_LIFE_CARE_COMPANIONS"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<h2 data-translate="LIFE_CARE"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_LIFE_CARE"></p>
+								<a href="./pricing.html?category='life'" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 					</div>
@@ -93,7 +93,7 @@
 				<div class="services-summary-group">
 					<div class="row sub-title">
 						<div class="col-lg-12">
-							<h2 class="u-fade-type-static js-scroll-trigger" data-translate="BUSINESS_ASSISTANT"></h2>
+							<h2 class="u-fade-type-static js-scroll-trigger" data-translate="BUSINESS_ASSISTANCE"></h2>
 						</div>
 					</div>
 					<div class="row services-group-boxed">
@@ -101,21 +101,24 @@
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
 								<h2 data-translate="RECEPTIONISTS"></h2>
 								<p data-translate="HOMEPAGE_SERVICE_RECEPTIONISTS"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<a href="./pricing.html?category=business" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2 data-translate="ADMIN_ASSISTANT"></h2>
-								<p data-translate="HOMEPAGE_SERVICE_ADMIN_ASSISTANT"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<h2 data-translate="ADMIN_ASSISTANTS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_ADMIN_ASSISTANTS"></p>
+								<a href="./pricing.html?category=business" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 box">
 							<div class="box-inner d-flex flex-column justify-content-flex-start">
-								<h2 data-translate="BUSINESS_ASSISTANT"></h2>
-								<p data-translate="HOMEPAGE_SERVICE_BUSINESS_ASSISTANT"></p>
-								<a href="#" class="btn-cta"><span data-translate="BOOK_NOW"></span></a>
+								<h2 data-translate="BUSINESS_ASSISTANTS"></h2>
+								<p data-translate="HOMEPAGE_SERVICE_BUSINESS_ASSISTANTS"></p>
+								<a href="./pricing.html?category=business" class="btn-cta"><span
+										data-translate="BOOK_NOW"></span></a>
 							</div>
 						</div>
 					</div>
@@ -176,15 +179,15 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column align-items-center justify-content-center logo-block
-						u-fade-type-static delay-1 js-scroll-trigger">
+                     u-fade-type-static delay-1 js-scroll-trigger">
 						<img src="./images/partner-logo/GMO-Zcom_2.png" alt="">
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column align-items-center justify-content-center logo-block
-						u-fade-type-static delay-2 js-scroll-trigger">
+                     u-fade-type-static delay-2 js-scroll-trigger">
 						<img src="./images/partner-logo/Moja.png" alt="">
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column align-items-center justify-content-center logo-block
-						u-fade-type-static delay-3 js-scroll-trigger">
+                     u-fade-type-static delay-3 js-scroll-trigger">
 						<img src="./images/partner-logo/Oizumi.png" alt="">
 					</div>
 				</div>
@@ -229,7 +232,8 @@
 										tie
 										up
 										so many loose ends and free up our time to concentrate on moving the business
-										forward."</div>
+										forward."
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -256,7 +260,8 @@
 										build
 										confidence with the team that they can let go of tasks and trust you to support
 										them.
-										That's huge!”</div>
+										That's huge!”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -283,7 +288,8 @@
 										admin tasks until I was able to see all that she has done and does daily. Having
 										my
 										meetings spaced and strategically placed has been so incredibly helpful. She is
-										wonderful!”</div>
+										wonderful!”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -309,7 +315,8 @@
 										that she does? She has opened my eyes to a lot of things and I really feel like
 										I
 										can
-										start serving my clients well again.”</div>
+										start serving my clients well again.”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -334,7 +341,8 @@
 									<div>“No other way to say it – VA Josephine is a superstar! She is the
 										missing piece to our organization and we’re are now asking ourselves, ‘What
 										would we
-										do without Josephine?’"</div>
+										do without Josephine?’"
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -359,7 +367,8 @@
 									<div>“This is the best decision I ever made! My business is growing really well and
 										Allie has been hugely
 										influential in aiding the growth and creating processes that allow us to scale
-										well.”</div>
+										well.”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -387,7 +396,8 @@
 										I was very nervous about
 										not being able to interview the candidates, but I'm so happy that I trusted the
 										process. BELAY has found me
-										the perfect match!"</div>
+										the perfect match!"
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -412,7 +422,8 @@
 									<div>“Can you clone Camille? If so, we’d like two more, please! Camille is
 										everything. I recommend BELAY to
 										anyone who will listen because of how much Camille has changed my life for the
-										better.”</div>
+										better.”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -439,7 +450,8 @@
 										of the quality of your work and
 										responsiveness, you've helped me build confidence with the team that they can
 										let go of tasks and trust you to
-										support them. That's huge!”</div>
+										support them. That's huge!”
+									</div>
 									<div class="extra">
 										<div class="star">
 											<ul>
@@ -457,7 +469,6 @@
 									</div>
 								</div>
 							</li>
-
 						</ul>
 					</div>
 				</div>
@@ -486,13 +497,12 @@
 		<div data-includeHTML="./partial-html/footer.html"></div>
 	</footer>
 	<!-- Bootstrap core JavaScript
-    ================================================== -->
+         ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/libs/jquery.min.js"></script>
 	<script src="js/libs/jquery.flexslider.js"></script>
 	<script src="js/libs/bootstrap.bundle.min.js"></script>
 	<script src="js/libs/bootstrap-select.min.js"></script>
-	<script src="js/libs/plyr.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/index.js"></script>
 </body>

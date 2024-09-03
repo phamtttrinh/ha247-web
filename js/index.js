@@ -1,36 +1,3 @@
-
-
-
-function isVisibleInViewport(elem) {
-    var y = elem.offsetTop;
-    var height = elem.offsetHeight;
-
-    while (elem = elem.offsetParent)
-        y += elem.offsetTop;
-
-    var maxHeight = y + height;
-    var isVisible = (y < (window.pageYOffset + window.innerHeight)) && (maxHeight >= window.pageYOffset);
-    return isVisible;
-
-}
-
-function initVideoPlayer() {
-    // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
-    const player = new Plyr('#video-player');
-    // Expose
-    window.player = player;
-    const videoPlayerEl = document.querySelector('#video-player');
-
-    $(window).scroll(function () {
-        const isVisible = isVisibleInViewport(videoPlayerEl);
-        if (isVisible && !player.playing) {
-            player.play();
-        }
-        if (!isVisible && player.playing) {
-            player.pause();
-        }
-    });
-}
 function initTestimonialBoxedSection() {
     $('.testimonials-flexslider').flexslider({
         animation: "slide", //String: Select your animation type, "fade" or "slide"
@@ -65,7 +32,8 @@ function initAnimationSections() {
 
 //////////////////////////////////////////
 $(function () {
-    initVideoPlayer();
-    initTestimonialBoxedSection();
-    initAnimationSections();
+    setTimeout(() => {
+        initTestimonialBoxedSection();
+        initAnimationSections();
+    }, 200);
 });

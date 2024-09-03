@@ -10,53 +10,82 @@ var styleConfig = {
 };
 
 function scrollFunction() {
-    if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) && (document.getElementById("full-screen-menu-container").style.opacity == 0)) {
+    var fullMenuEl = document.getElementById("full-screen-menu-container");
+    var isShowNormalMenu = fullMenuEl.style.opacity === '0';
+    if (isShowNormalMenu) {
+        if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1)) {
+            document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
+            document.getElementById("navbar").style.color = styleConfig.whiteColor;
+            document.getElementById("logo").src = styleConfig.compayLogoWhite;
+        } else {
+            document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
+            document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
+            document.getElementById("logo").src = styleConfig.companyLogo;
+        }
+    } else {
         document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
         document.getElementById("navbar").style.color = styleConfig.whiteColor;
         document.getElementById("logo").src = styleConfig.compayLogoWhite;
-    } else {
-        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
-        document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
-        document.getElementById("logo").src = styleConfig.companyLogo;
     }
+
+    
+    scrollShowFloatingScrollTop();
+    scrollAutoPlayVideo();
+}
+
+function scrollShowFloatingScrollTop() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        $('#floating-action-scroll-top').addClass('show');
+    } else {
+        $('#floating-action-scroll-top').removeClass('show');
+    }
+    $('#floating-action-scroll-top').on('click', function () {
+        document.documentElement.scrollTop = 0;
+    });
+}
+
+function isVisibleInViewport(elem) {
+    var y = elem.offsetTop;
+    var height = elem.offsetHeight;
+
+    while (elem = elem.offsetParent)
+        y += elem.offsetTop;
+
+    var maxHeight = y + height;
+    var isVisible = (y < (window.pageYOffset + window.innerHeight)) && (maxHeight >= window.pageYOffset);
+    return isVisible;
+
+}
+
+function scrollAutoPlayVideo() {
+    $('video').each(function () {
+        const videoPlayerEl = $(this)[0];
+        const isVisible = isVisibleInViewport(videoPlayerEl);
+        if (isVisible && !videoPlayerEl.playing) {
+            videoPlayerEl.play();
+        }
+        if (!isVisible && videoPlayerEl.playing) {
+            videoPlayerEl.pause();
+        }
+    });
 }
 
 function hamburgerMenu(x) {
     x.classList.toggle("change");
 
-    var menu = $('#full-screen-menu-container');
-    var navbarMiddle = $('#navbar-middle');
-
-    if (menu.css('opacity') === '0') {
-        menu.css({
+    var fullMenuEl = $('#full-screen-menu-container');
+    if (fullMenuEl.css('opacity') === '0') {
+        fullMenuEl.css({
             'height': '100vh',
             'opacity': '1'
         });
-        navbarMiddle.css({ 'color': styleConfig.whiteColor });
-        document.getElementById("logo").src = styleConfig.compayLogoWhite;
     } else {
-        menu.css({
+        fullMenuEl.css({
             'height': '0',
             'opacity': '0'
         });
-        navbarMiddle.css({ 'color': darkGreenColor });
-        if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-            document.getElementById("logo").src = styleConfig.compayLogoWhite;
-        } else {
-            document.getElementById("logo").src = styleConfig.companyLogo;
-        }
     }
-
-    /* Remove navy background from menu if present */
-    if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) && (document.getElementById("full-screen-menu-container").style.opacity == 0)) {
-
-        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
-        navbarMiddle.css({ 'color': styleConfig.darkGreenColor });
-    } else {
-        document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
-        navbarMiddle.css({ 'color': styleConfig.whiteColor });
-    }
-
+    scrollFunction();
 }
 
 function fullScreenMenuLinkMouseOver(x) {
@@ -123,6 +152,19 @@ function includePartialHtml() {
     });
 }
 
+function triggerScrollWhenRefresh() {
+
+    $(".js-window-trigger").each(function () {
+        $(this).addClass('is-active');
+    });
+
+    if ($('.js-scroll-trigger').length) {
+        scrollAnimation();
+    }
+    $(window).trigger('scroll');
+
+}
+
 //////////////////////////////////////////
 $(function () {
     includePartialHtml();
@@ -131,21 +173,6 @@ $(function () {
         localStorage.setItem('lang', 'en');
         loadLanguage(localStorage.getItem('lang') || 'en');
         initHeader();
-        // Make anchor links scroll
-        $(document).on('click', 'a[href^="#"]', function (event) {
-            event.preventDefault();
-            $('html, body').animate({
-                scrollTop: $($.attr(this, 'href')).offset().top
-            }, 500);
-        });
-
-        $(".js-window-trigger").each(function () {
-            $(this).addClass('is-active');
-        });
-
-        if ($('.js-scroll-trigger').length) {
-            scrollAnimation();
-        }
-        $(window).trigger('scroll');
-    }, 100);
+        triggerScrollWhenRefresh();
+    }, 200);
 });
