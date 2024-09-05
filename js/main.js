@@ -12,23 +12,19 @@ var styleConfig = {
 function scrollFunction() {
     var fullMenuEl = document.getElementById("full-screen-menu-container");
     var isShowNormalMenu = fullMenuEl.style.opacity === '0';
-    if (isShowNormalMenu) {
-        if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1)) {
-            document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
-            document.getElementById("navbar").style.color = styleConfig.whiteColor;
-            document.getElementById("logo").src = styleConfig.compayLogoWhite;
-        } else {
-            document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
-            document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
-            document.getElementById("logo").src = styleConfig.companyLogo;
-        }
-    } else {
+    if (!isShowNormalMenu || (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1)) {
         document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
         document.getElementById("navbar").style.color = styleConfig.whiteColor;
         document.getElementById("logo").src = styleConfig.compayLogoWhite;
+        document.getElementById("hamburger").classList.remove("hover");
+    } else {
+        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
+        document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
+        document.getElementById("logo").src = styleConfig.companyLogo;
+        document.getElementById("hamburger").classList.add("hover");
     }
 
-    
+
     scrollShowFloatingScrollTop();
     scrollAutoPlayVideo();
 }
