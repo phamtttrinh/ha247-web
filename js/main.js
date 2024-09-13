@@ -12,25 +12,20 @@ var styleConfig = {
 function scrollFunction() {
     var fullMenuEl = document.getElementById("full-screen-menu-container");
     var isShowNormalMenu = fullMenuEl.style.opacity === '0';
-    if (isShowNormalMenu) {
-        if ((document.body.scrollTop > 1 || document.documentElement.scrollTop > 1)) {
-            document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
-            document.getElementById("navbar").style.color = styleConfig.whiteColor;
-            document.getElementById("logo").src = styleConfig.compayLogoWhite;
-        } else {
-            document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
-            document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
-            document.getElementById("logo").src = styleConfig.companyLogo;
-        }
-    } else {
+    if (!isShowNormalMenu || (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1)) {
         document.getElementById("navbar").style.background = styleConfig.darkGreenColor;
         document.getElementById("navbar").style.color = styleConfig.whiteColor;
         document.getElementById("logo").src = styleConfig.compayLogoWhite;
+        document.getElementById("hamburger").classList.remove("hover");
+    } else {
+        document.getElementById("navbar").style.background = styleConfig.darkGreenTransparent;
+        document.getElementById("navbar").style.color = styleConfig.darkGreenColor;
+        document.getElementById("logo").src = styleConfig.companyLogo;
+        document.getElementById("hamburger").classList.add("hover");
     }
 
-    
+
     scrollShowFloatingScrollTop();
-    scrollAutoPlayVideo();
 }
 
 function scrollShowFloatingScrollTop() {
@@ -57,18 +52,18 @@ function isVisibleInViewport(elem) {
 
 }
 
-function scrollAutoPlayVideo() {
-    $('video').each(function () {
-        const videoPlayerEl = $(this)[0];
-        const isVisible = isVisibleInViewport(videoPlayerEl);
-        if (isVisible && !videoPlayerEl.playing) {
-            videoPlayerEl.play();
-        }
-        if (!isVisible && videoPlayerEl.playing) {
-            videoPlayerEl.pause();
-        }
-    });
-}
+// function scrollAutoPlayVideo() {
+//     $('video').each(function () {
+//         const videoPlayerEl = $(this)[0];
+//         const isVisible = isVisibleInViewport(videoPlayerEl);
+//         if (isVisible && !videoPlayerEl.playing) {
+//             videoPlayerEl.play();
+//         }
+//         if (!isVisible && videoPlayerEl.playing) {
+//             videoPlayerEl.pause();
+//         }
+//     });
+// }
 
 function hamburgerMenu(x) {
     x.classList.toggle("change");
@@ -101,10 +96,13 @@ function initHeader() {
     // Fade the post title as the user scrolls
     window.onscroll = function () { scrollFunction() };
 
-    // Set year in fullscreen menu
-    const d = new Date();
-    let year = d.getFullYear();
-    document.getElementById("current-year").innerHTML = year;
+    var currentYearEl = $("#current-year");
+    if (currentYearEl) {
+        // Set year in footer
+        const d = new Date();
+        let year = d.getFullYear();
+        currentYearEl.innerHTML = year;
+    }
 }
 
 function scrollAnimation() {
@@ -165,6 +163,34 @@ function triggerScrollWhenRefresh() {
 
 }
 
+function getURIQueryParam(key) {
+    var searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has(key)) {
+        return searchParams.get(key);
+    }
+    return null;
+}
+
+function initFlexSlider() {
+    $('.flexslider').flexslider({
+        animation: "slide", //String: Select your animation type, "fade" or "slide"
+        easing: "swing", //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
+        direction: "horizontal", //String: Select the sliding direction, "horizontal" or "vertical"
+        reverse: false, //{NEW} Boolean: Reverse the animation direction
+        animationLoop: true, //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
+        smoothHeight: false, //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode  
+        startAt: 0, //Integer: The slide that the slider should start on. Array notation (0 = first slide)
+        slideshow: true,
+        // Usability features
+        pauseOnAction: true, //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
+        pauseOnHover: false, //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
+        useCSS: true, //{NEW} Boolean: Slider will use CSS3 transitions if available
+        touch: true, //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
+        // Primary Controls
+        itemWidth: 350,
+    });
+}
+
 //////////////////////////////////////////
 $(function () {
     includePartialHtml();
@@ -174,5 +200,6 @@ $(function () {
         loadLanguage(localStorage.getItem('lang') || 'en');
         initHeader();
         triggerScrollWhenRefresh();
-    }, 200);
+        initFlexSlider();
+    }, 1000);
 });

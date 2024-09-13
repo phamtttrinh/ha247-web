@@ -23,17 +23,76 @@
     <!--Header-->
     <header class="header">
         <div data-includeHTML="./partial-html/header.html"></div>
-        <img src="./images/banner/ha247-banner.svg" width="100%" height="auto" />
+        <img src="./images/banner/Our HA - Demo Banner 0.png" width="100%" height="auto" />
     </header>
     <!--Entry Content-->
-    <div class="entry-content" style="height: 300px;">
-        <section>
+    <div class="entry-content">
+        <!-- <section class="video-company-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Will comming soon</h3>
-                    </div>
+                    <video class="elementor-video mt3" src="./videos/ha247-video.mp4" controls controlslist="nodownload"
+                        id="video-player"></video>
                 </div>
+            </div>
+        </section> -->
+        <!-- introduce -->
+        <section class="aboutus-our-introduce-section">
+            <div class="container">
+                <div class="row">
+                    <div data-includeHTML="./partial-html/about-us/our-introduce.html"></div>
+                </div>
+            </div>
+        </section>
+        <!-- our skills -->
+        <section class="aboutus-our-skills-section">
+            <div class="container">
+                <div class="row">
+                    <div data-includeHTML="./partial-html/about-us/our-skills.html"></div>
+                </div>
+            </div>
+        </section>
+        <!-- our persona -->
+        <section class="aboutus-our-persona-section">
+            <div class="container">
+                <div class="row d-flex flex-row text-center justify-content-center"
+                    data-includeHTML="./partial-html/about-us/our-persona.html"></div>
+            </div>
+        </section>
+        <!-- our mission -->
+        <section class="aboutus-our-mission-section">
+            <div class="container">
+                <div class="row">
+                    <div data-includeHTML="./partial-html/about-us/our-mission.html"></div>
+                </div>
+            </div>
+        </section>
+        <!-- our values -->
+        <section class="aboutus-our-values-section">
+            <div class="container">
+                <div class="row d-flex flex-row text-center justify-content-center"
+                    data-includeHTML="./partial-html/about-us/our-values.html"></div>
+            </div>
+        </section>
+        <!-- our founder profile -->
+        <section class="aboutus-founder-profile-section">
+            <div class="container">
+                <div class="row d-flex flex-row text-center justify-content-center"
+                    data-includeHTML="./partial-html/about-us/our-founder-profile.html"></div>
+            </div>
+        </section>
+        <!-- our milestone -->
+        <!-- <section class="aboutus-milestone-section">
+            <div class="container">
+                <div class="section-title text-left">
+                    <h2 class="fw-bold u-fade-type-static js-scroll-trigger">Milestones</h2>
+                    <div class="hr"></div>
+                </div>
+                <div class="container-wrapper"></div>
+            </div>
+        </section> -->
+        <!-- our team -->
+        <section class="aboutus-our-team-section">
+            <div class="container" data-includeHTML="./partial-html/about-us/our-team.html">
             </div>
         </section>
     </div>
@@ -48,7 +107,8 @@
     <script src="js/libs/jquery.flexslider.js"></script>
     <script src="js/libs/bootstrap.bundle.min.js"></script>
     <script src="js/libs/bootstrap-select.min.js"></script>
-    <script src="js/libs/plyr.js"></script>
+    <!-- <script src="js/libs/plyr.js"></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js'></script>
     <script src="js/main.js"></script>
     <script src="js/about-us.js"></script>
 </body>
