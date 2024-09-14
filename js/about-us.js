@@ -214,10 +214,49 @@ function initOurPersonaSection() {
     setTimeout(() => $("#service-collection .serv-0").addClass("active"), 200);
 }
 
+function initOurTeamFlexSlider() {
+    const itemCount = getGridSize();
+    console.log(itemCount);
+    $('.our-team-flexslider').flexslider({
+        animation: "slide",
+        // easing: "swing",
+        direction: "horizontal",
+        reverse: false,
+        animationLoop: true,
+        smoothHeight: false,
+        startAt: 0,
+        slideshow: true,
+        pauseOnAction: true,
+        pauseOnHover: false,
+        useCSS: true,
+        touch: true,
+        itemWidth: 400,
+        minItems: itemCount,
+        maxItems: itemCount
+    });
+}
+// store the slider in a local variable
+var $window = $(window),
+    flexslider = { vars: {} };
+
+// tiny helper function to add breakpoints
+function getGridSize() {
+    if (window.innerWidth < 500) { return 1;}
+    if (window.innerWidth < 1024) { return 2; }
+    return 3;
+}
 /*-------------------*/
 /*-------------------*/
 $(function () {
     setTimeout(() => {
         initOurPersonaSection();
+        initOurTeamFlexSlider();
+        // check grid size on resize event
+        $window.resize(function () {
+            var gridSize = getGridSize();
+
+            flexslider.vars.minItems = gridSize;
+            flexslider.vars.maxItems = gridSize;
+        });
     }, 1000);
 });
