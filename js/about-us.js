@@ -1,7 +1,7 @@
 
 function initOurPersonaSection() {
     const center = { x: 325, y: 175 };
-    const serv_dist = 250;
+    const pers_dist = 250;
     const pointer_dist = 172;
     const pointer_time = 2;
     const icon_size = 42;
@@ -11,18 +11,18 @@ function initOurPersonaSection() {
 
     //name is used as the title for the bubble
     //icon is the id of the corresponding svg symbol
-    const services_data = [
-        { name: "Trustworthy", icon: "industries" },
-        { name: "Caring", icon: "validation" },
-        { name: "Professional", icon: "engineering" },
-        { name: "Effective", icon: "management" },
-        { name: "Compassionate", icon: "manufacturing" },
-        { name: "Approachable", icon: "technical" },
-        { name: "Supportive", icon: "process" }
+    const personas_data = [
+        { name: "Trustworthy", icon: "trustworthy" },
+        { name: "Professional", icon: "professional" },
+        { name: "Compassionate", icon: "compassionate" },
+        { name: "Supportive", icon: "supportive" },
+        { name: "Caring", icon: "caring" },
+        { name: "Efficient", icon: "efficient" },
+        { name: "Approachable", icon: "approachable" }
     ];
 
-    const services = document.getElementById("service-collection");
-    const nav_container = document.getElementById("circle-nav-services");
+    const personas = document.getElementById("persona-collection");
+    const nav_container = document.getElementById("circle-nav-personas");
     const symbol_copy = document.getElementById("circle-nav-copy");
     const use_copy = document.querySelector("use.nav-copy");
 
@@ -38,10 +38,10 @@ function initOurPersonaSection() {
         })
     }
 
-    //Service bubbles are created dynamically
-    function addService(serv, index) {
+    //Persona bubbles are created dynamically
+    function addPersona(pers, index) {
         let group = createSVGElement("g");
-        group.setAttribute("class", "service serv-" + index);
+        group.setAttribute("class", "persona pers-" + index);
 
         /* This group is needed to apply animations in
           the icon and its background at the same time */
@@ -68,7 +68,7 @@ function initOurPersonaSection() {
             'width': icon_size,
             'height': icon_size,
         });
-        symbol.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#" + serv.icon);
+        symbol.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#" + pers.icon);
         icon_group.appendChild(symbol);
 
         group.appendChild(icon_group);
@@ -80,10 +80,10 @@ function initOurPersonaSection() {
         });
 
         let tspan = createSVGElement("tspan");
-        if (serv.name.indexOf('\n') >= 0) {
+        if (pers.name.indexOf('\n') >= 0) {
 
             let tspan2 = tspan.cloneNode();
-            let name = serv.name.split('\n');
+            let name = pers.name.split('\n');
             $(tspan).text(name[0]);
             $(tspan2).text(name[1]);
 
@@ -96,40 +96,40 @@ function initOurPersonaSection() {
             text.appendChild(tspan2);
         }
         else {
-            $(tspan).text(serv.name);
+            $(tspan).text(pers.name);
             text.appendChild(tspan);
         }
 
         group.appendChild(text);
-        services.appendChild(group);
+        personas.appendChild(group);
 
-        let service_bubble = $(".serv-" + index);
+        let persona_bubble = $(".pers-" + index);
 
         //Uses tween to look for right position
         twn_pivot_path.seek(index);
-        TweenLite.set(service_bubble, {
+        TweenLite.set(persona_bubble, {
             x: pivot_path.x,
             y: pivot_path.y,
             transformOrigin: "center center"
         });
 
-        service_bubble.click(serviceClick);
+        persona_bubble.click(personaClick);
     }
 
     //Creates pointer
     function createPointer() {
-        let service_pointer = createSVGElement("circle");
+        let persona_pointer = createSVGElement("circle");
 
-        setAttributes(service_pointer, {
+        setAttributes(persona_pointer, {
             cx: center.x - pointer_dist,
             cy: center.y,
             r: 12,
             class: "pointer"
         });
 
-        nav_container.appendChild(service_pointer);
+        nav_container.appendChild(persona_pointer);
 
-        service_pointer = document.querySelector("svg .pointer");
+        persona_pointer = document.querySelector("svg .pointer");
 
         let pointer_circle = [
             { x: 0, y: 0 },
@@ -139,7 +139,7 @@ function initOurPersonaSection() {
             { x: 0, y: 0 }
         ];
 
-        twn_pointer_path.to(service_pointer, pointer_time, {
+        twn_pointer_path.to(persona_pointer, pointer_time, {
             bezier: {
                 values: pointer_circle,
                 curviness: 1.5
@@ -150,16 +150,17 @@ function initOurPersonaSection() {
 
     }
 
-    //Defines behavior for service bubbles
-    function serviceClick(ev) {
+    //Defines behavior for persona bubbles
+    function personaClick(ev) {
 
-        //There's always an active service
-        $(".service.active").removeClass("active");
+        //There's always an active persona
+        $(".persona.active").removeClass("active");
+        $(".center-placeholder-item.active").removeClass("active");
 
         let current = $(ev.currentTarget);
         current.addClass("active");
 
-        //There's a "serv-*" class for each bubble
+        //There's a "pers-*" class for each bubble
         let current_class = current.attr("class").split(" ")[1];
         let class_index = current_class.split('-')[1];
 
@@ -169,22 +170,23 @@ function initOurPersonaSection() {
         //Sets pointer to the right position
         twn_pointer_path.tweenTo(class_index * (pointer_time / (2 * 6)));
 
+        $(".placeholder-" + current_class).addClass("active");
         //After it's completely hidden, the text changes and becomes visible
         setTimeout(() => {
             let viewBoxY = 300 * class_index;
             symbol_copy.setAttribute("viewBox", "0 " + viewBoxY + " 300 300");
-            $(use_copy).removeClass("changing")
+            $(use_copy).removeClass("changing");
         }, 250)
     }
 
     //Array describes points for a whole circle in order to get
     //the right curve
     let half_circle = [
-        { x: -serv_dist, y: 0 },
-        { x: 0, y: serv_dist },
-        { x: serv_dist, y: 0 },
-        { x: 0, y: -serv_dist },
-        { x: -serv_dist, y: 0 }
+        { x: -pers_dist, y: 0 },
+        { x: 0, y: pers_dist },
+        { x: pers_dist, y: 0 },
+        { x: 0, y: -pers_dist },
+        { x: -pers_dist, y: 0 }
     ];
 
     //A simple object is used in the tween to retrieve its values
@@ -200,8 +202,8 @@ function initOurPersonaSection() {
         ease: Linear.easeNone
     });
 
-    services_data.reduce((count, serv) => {
-        addService(serv, count);
+    personas_data.reduce((count, pers) => {
+        addPersona(pers, count);
         return ++count;
     }, 0);
 
@@ -211,7 +213,10 @@ function initOurPersonaSection() {
     createPointer();
 
     //Adding it immediately triggers a bug for the transform
-    setTimeout(() => $("#service-collection .serv-0").addClass("active"), 200);
+    setTimeout(() => {
+        $("#persona-collection .pers-0").addClass("active");
+        $(".center-placeholder .placeholder-pers-0").addClass("active");
+    }, 200);
 }
 
 function initOurTeamFlexSlider() {
@@ -241,7 +246,7 @@ var $window = $(window),
 
 // tiny helper function to add breakpoints
 function getGridSize() {
-    if (window.innerWidth < 500) { return 1;}
+    if (window.innerWidth < 500) { return 1; }
     if (window.innerWidth < 1024) { return 2; }
     return 3;
 }

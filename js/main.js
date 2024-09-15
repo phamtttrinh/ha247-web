@@ -52,17 +52,20 @@ function isVisibleInViewport(elem) {
 }
 
 function scrollAutoPlayVideo() {
-    const player = new Plyr('#video-player');
-    // Expose
-    window.player = player;
-    const videoPlayerEl = document.querySelector('#video-player');
+    // if (document.getElementById("#video-player")) {
 
-    $(window).scroll(function () {
-        const isVisible = isVisibleInViewport(videoPlayerEl);
-        if (!isVisible && player.playing) {
-            player.pause();
-        }
-    });
+    //     const player = new Plyr('#video-player');
+    //     // Expose
+    //     window.player = player;
+    //     const videoPlayerEl = document.querySelector('#video-player');
+
+    //     $(window).scroll(function () {
+    //         const isVisible = isVisibleInViewport(videoPlayerEl);
+    //         if (!isVisible && player.playing) {
+    //             player.pause();
+    //         }
+    //     });
+    // }
 }
 
 function hamburgerMenu(x) {
