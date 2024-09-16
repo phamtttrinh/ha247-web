@@ -221,7 +221,6 @@ function initOurPersonaSection() {
 
 function initOurTeamFlexSlider() {
     const itemCount = getGridSize();
-    console.log(itemCount);
     $('.our-team-flexslider').flexslider({
         animation: "slide",
         // easing: "swing",
@@ -259,9 +258,8 @@ $(function () {
         // check grid size on resize event
         $window.resize(function () {
             var gridSize = getGridSize();
-
             flexslider.vars.minItems = gridSize;
             flexslider.vars.maxItems = gridSize;
         });
-    }, 1000);
+    }, 500);
 });
